@@ -1,0 +1,11 @@
+[
+{
+  "model": "my_bonus.PrivilegeModel",
+  "pk": 1,
+  "fields": {
+    "username": "me",
+    "status": "GOLD",
+    "balance": 1488
+  }
+}
+]

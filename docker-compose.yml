@@ -15,6 +15,52 @@ services:
       - "5432:5432"
 
 # TODO добавить сервисыыы
+  bonus:
+    build: ./src/bonus/
+    ports:
+      - "8050:8050"
+    restart: on-failure
+    volumes:
+      - ./src/bonus/:/bonus/
+    command: >
+      bash -c "python manage.py migrate
+      && python manage.py loaddata ./init_data.json
+      && python manage.py runserver 0.0.0.0:8050"
+
+  flight:
+    build: ./src/flight/
+    ports:
+      - "8060:8060"
+    restart: on-failure
+    volumes:
+      - ./src/FlightService/:/flight/
+    command: >
+      bash -c "python manage.py migrate
+      && python manage.py loaddata ./init_data.json
+      && python manage.py runserver 0.0.0.0:8060"
+
+  ticket:
+    build: ./src/ticket/
+    ports:
+      - "8070:8070"
+    restart: on-failure
+    volumes:
+      - ./src/ticket/:/ticket/
+    command: >
+      bash -c "python manage.py migrate
+      && python manage.py runserver 0.0.0.0:8070"
+
+  gateway:
+    build: ./src/gateway/
+    ports:
+      - "8080:8080"
+    restart: on-failure
+    volumes:
+      - ./src/gateway/:/gateway/
+    command: >
+      bash -c "python manage.py migrate
+      && python manage.py runserver 0.0.0.0:8080"
+
 
 volumes:
   db-data:
