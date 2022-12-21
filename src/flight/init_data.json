@@ -1,6 +1,6 @@
 [
 {
-  "model": "myFlight.AirportModel",
+  "model": "my_flight.AirportModel",
   "pk": 1,
   "fields": {
     "name": "Шереметьево",
@@ -9,7 +9,7 @@
   }
 },
 {
-  "model": "myFlight.AirportModel",
+  "model": "my_flight.AirportModel",
   "pk": 2,
   "fields": {
     "name": "Пулково",
@@ -18,7 +18,7 @@
   }
 },
 {
-  "model": "myFlight.FlightModel",
+  "model": "my_flight.FlightModel",
   "pk": 1,
   "fields": {
     "flight_number": "AFL031",

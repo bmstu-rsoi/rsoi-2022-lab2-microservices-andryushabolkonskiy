@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'my_fglight.apps.MyflightConfig',
+    'my_flight.apps.MyflightConfig',
     'rest_framework'
 ]
 
@@ -71,7 +71,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'flights',
         'USER': 'postgres',
-        'PASSWORD': '2112',
+        'PASSWORD': 'postgres',
         'HOST': 'postgres',
         'PORT': '5432'
     }
