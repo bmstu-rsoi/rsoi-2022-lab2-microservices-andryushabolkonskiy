@@ -35,8 +35,6 @@ def get_one_tickets_of_user(request, ticketUid):
 @api_view(['POST'])
 def buy_ticket_for_user(request):
     user = request.headers['X-User-Name']
-    #print(TicketModel.status.PAID)
-    #data = JSONParser().parse(request)
     data = {
         "username": user,
         "flight_number": request.data['flightNumber'],
