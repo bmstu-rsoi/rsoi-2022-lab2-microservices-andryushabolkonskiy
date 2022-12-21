@@ -7,7 +7,7 @@ import uuid
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('myBonus', '0002_alter_privilegehistorymodel_ticket_uid'),
+        ('my_bonus', '0002_alter_privilegehistorymodel_ticket_uid'),
     ]
 
     operations = [
