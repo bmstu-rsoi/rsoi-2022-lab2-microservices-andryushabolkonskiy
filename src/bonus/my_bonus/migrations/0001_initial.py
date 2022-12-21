@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
                 ('datetime', models.DateTimeField()),
                 ('balance_diff', models.IntegerField()),
                 ('operation_type', models.CharField(choices=[('FILL_IN_BALANCE', 'fill_in_balance'), ('DEBIT_THE_ACCOUNT', 'debit_the_account')], max_length=20)),
-                ('privilege_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='myBonus.privilegemodel')),
+                ('privilege_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='my_bonus.privilegemodel')),
             ],
         ),
     ]
