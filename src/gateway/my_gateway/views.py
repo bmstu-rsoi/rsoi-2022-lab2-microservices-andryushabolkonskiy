@@ -64,7 +64,7 @@ def gateway_get_user_info(request):
     else:
         return JsonResponse({'message': 'user with this name doesnt exist'}, status=status.HTTP_400_BAD_REQUEST, safe=False)
 
-#Запросы для TicketService
+#Запросы для ticket
 #Информация по всем билетам пользователя и покупка билета
 @api_view(['GET', 'POST'])
 def gateway_get_all_tickets_and_buy(request):
@@ -252,7 +252,7 @@ def gateway_get_ticket_info_and_cancel(request, ticketUid):
         return JsonResponse({'message': 'user with this name doesnt exist'}, status=status.HTTP_400_BAD_REQUEST, safe=False)
 
 
-#Запросы для FlightService
+#Запросы для flight
 #Получить список рейстов
 @api_view(['GET'])
 def gateway_get_all_flights(request):
@@ -268,7 +268,7 @@ def gateway_get_all_flights(request):
         return JsonResponse(list_of_flight.json(), status=list_of_flight.status_code, safe=False)
 
 
-#Запросы для BonusService
+#Запросы для bonus
 #Получить информацию о состоянии бонусного счета
 @api_view(['GET'])
 def gateway_get_privilege_info(request):
