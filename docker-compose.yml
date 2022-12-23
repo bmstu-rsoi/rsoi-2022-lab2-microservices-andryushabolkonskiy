@@ -13,54 +13,58 @@ services:
       - ./postgres/:/docker-entrypoint-initdb.d/
     ports:
       - "5432:5432"
-
-# TODO добавить сервисыыы
-  bonus:
-    build: ./src/bonus/
-    ports:
-      - "8050:8050"
-    restart: on-failure
-    volumes:
-      - ./src/bonus/:/bonus/
-    command: >
-      bash -c "python manage.py migrate
-      && python manage.py loaddata ./init_data.json
-      && python manage.py runserver 0.0.0.0:8050"
-
-  flight:
-    build: ./src/flight/
-    ports:
-      - "8060:8060"
-    restart: on-failure
-    volumes:
-      - ./src/flight/:/flight/
-    command: >
-      bash -c "python manage.py migrate
-      && python manage.py loaddata ./init_data.json
-      && python manage.py runserver 0.0.0.0:8060"
-
-  ticket:
-    build: ./src/ticket/
-    ports:
-      - "8070:8070"
-    restart: on-failure
-    volumes:
-      - ./src/ticket/:/ticket/
-    command: >
-      bash -c "python manage.py migrate
-      && python manage.py runserver 0.0.0.0:8070"
+    networks:
+      default:
+        ipv4_address: 10.5.0.2
 
   gateway:
-    build: ./src/gateway/
+    build: src/gateway-service/
+    container_name: gateway-cont
+    restart: on-failure
     ports:
       - "8080:8080"
+    networks:
+      default:
+        ipv4_address: 10.5.0.3
+
+  bonus:
+    build: src/bonus-service/
+    container_name: bonus-cont
     restart: on-failure
-    volumes:
-      - ./src/gateway/:/gateway/
-    command: >
-      bash -c "python manage.py migrate
-      && python manage.py runserver 0.0.0.0:8080"
+    ports:
+      - "8050:8050"
+    networks:
+      default:
+        ipv4_address: 10.5.0.4
+
+  flight:
+    build: src/flight-service/
+    container_name: flight-cont
+    restart: on-failure
+    ports:
+      - "8060:8060"
+    networks:
+      default:
+        ipv4_address: 10.5.0.5
+
+  ticket:
+    build: src/ticket-service/
+    container_name: ticket-cont
+    restart: on-failure
+    ports:
+      - "8070:8070"
+    networks:
+      default:
+        ipv4_address: 10.5.0.6
 
 
 volumes:
   db-data:
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
