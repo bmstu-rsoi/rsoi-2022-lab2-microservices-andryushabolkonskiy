@@ -1011,7 +1011,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"pm.collectionVariables.set(\"carUid\", \"109b42f3-198d-4c89-9276-a7520a7120ab\")",
-							"pm.collectionVariables.set(\"username\", \"Test Max\")"
+							"pm.collectionVariables.set(\"username\", \"lolo pepe\")"
 						]
 					}
 				},

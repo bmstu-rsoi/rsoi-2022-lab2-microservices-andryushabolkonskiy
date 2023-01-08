@@ -49,9 +49,8 @@ class PrivilegesDataBase:
                                 );'''
         self.cursor.execute(create_table_query)
 
-        # Add the first test record ('Test Max', 'GOLD', '1500')
         insert_query = "INSERT INTO privilege (username, status, balance) VALUES (%s,%s,%s);"
-        insert_data = ('Test Max', 'GOLD', 1500)
+        insert_data = ('lolo pepe', 'GOLD', 1500)
         self.cursor.execute(insert_query, insert_data)
 
         return

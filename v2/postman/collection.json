@@ -822,7 +822,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"pm.collectionVariables.set(\"hotelUid\", \"049161bb-badd-4fa8-9d90-87c9a82b0668\")",
-							"pm.collectionVariables.set(\"username\", \"Test Max\")"
+							"pm.collectionVariables.set(\"username\", \"lolo pepe\")"
 						]
 					}
 				},
